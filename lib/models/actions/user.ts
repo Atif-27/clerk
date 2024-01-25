@@ -1,14 +1,13 @@
 import connect from "../../mongodb/mongoose";
 import User from "../../models/User";
-import console from "console";
 
 export const createOrUpdateUser = async (
-  id,
-  first_name,
-  last_name,
-  image_url,
-  email_addresses,
-  username
+  id: string,
+  first_name: string,
+  last_name: string,
+  image_url: string,
+  email_addresses: { email_addresses: string }[], // Adjust this type according to your actual data structure
+  username: string
 ) => {
   try {
     await connect();
@@ -36,7 +35,7 @@ export const createOrUpdateUser = async (
   }
 };
 
-export const deleteUser = async (id) => {
+export const deleteUser = async (id: string) => {
   try {
     await connect();
     await User.findOneAndDelete({ clerkId: id });
