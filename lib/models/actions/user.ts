@@ -1,12 +1,14 @@
 import connect from "../../mongodb/mongoose";
 import User from "../../models/User";
+import { EmailAddressJSON } from "@clerk/nextjs/server";
 
 export const createOrUpdateUser = async (
   id: string,
   first_name: string,
   last_name: string,
   image_url: string,
-  email_addresses: { email_addresses: string }[], // Adjust this type according to your actual data structure
+  email_addresses: EmailAddressJSON[],
+  // Adjust this type according to your actual data structure
   username: string
 ) => {
   try {
