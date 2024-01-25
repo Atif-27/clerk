@@ -63,7 +63,7 @@ export async function POST(req: Request) {
         last_name,
         image_url,
         email_addresses,
-        username
+        username || ""
       );
       return new Response("User Created/Updated", { status: 200 });
     } catch (error) {
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
   if (eventType === "user.deleted") {
     const { id } = evt.data;
     try {
-      await deleteUser(id);
+      await deleteUser(id || "");
       return new Response("User Deleted", { status: 200 });
     } catch (error) {
       console.log(error);
