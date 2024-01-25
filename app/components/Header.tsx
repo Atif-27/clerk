@@ -7,7 +7,7 @@ export default function Header() {
       <h1 className="text-2xl font-bold">Header</h1>
       <div className="flex gap-5">
         <SignedIn>
-          <UserButton />
+          <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <SignedOut>
           <Link href="sign-up">Sign Up</Link>
